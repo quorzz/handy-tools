@@ -50,12 +50,20 @@ function isUnsignedInt(){
 
 isUnsignedInt $line; ret=$?
 
+awkScript='BEGIN{FS=";"} {
+        a="";
+        for (i=2; i<=NF; i++) {
+            a=a";"$i
+        }
+        if ( (!b[a]++) && (length(a)>l) ) {
+            print "\033[33m" NR "\033[0m", "", "\033[32m" substr(a,2) "\033[0m"
+        }
+    }'
+
 if [ $ret = 0 ]; then
 
-    # 9 head -9  or -9 tail -9
-    awk -v l=$minLength -F";" '{a="";for(i=2;i<=NF;i++){a=a";"$i} if((!b[a]++)&&(length(a)>l)){ print "\033[33m" NR "\033[0m", "", "\033[32m" substr(a,2) "\033[0m"}}' $historyFile | $commandStr -$line
+    awk -v l=$minLength "$awkScript" $historyFile | $commandStr -$line
 else
 
-    # 随便输入的非正整数
-    awk -v l=$minLength -F";" '{a="";for(i=2;i<=NF;i++){a=a";"$i} if((!b[a]++)&&(length(a)>l)){ print "\033[33m" NR "\033[0m", "", "\033[32m" substr(a,2) "\033[0m"}}' $historyFile
+    awk -v l=$minLength "$awkScript" $historyFile
 fi
