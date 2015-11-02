@@ -8,7 +8,9 @@ So I can't ensure that they can work well under linux or other environment
 
 *** 
 
-**1. hs.sh** 
+**1. hs** 
+
+    script : src/hs.sh
 
     filter duplicate and short command.
     it's more frindly and easy-use than the build-in history 
@@ -26,10 +28,12 @@ So I can't ensure that they can work well under linux or other environment
 
 ***
 
-**2.ko.sh**
+**2. ko**
 
+    script : src/ko.sh
+    
     kill processes by %name%
 
-![ko redis](http://raw.github.com/quorzz/HanndyTools/master/images/ko01.png)
+![ko redis](https://github.com/quorzz/HandyTools/blob/master/images/ko01.png)
 
 ***
