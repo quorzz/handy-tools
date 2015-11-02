@@ -25,3 +25,11 @@ So I can't ensure that they can work well under linux or other environment
 | hs -c         | backup history, then clear it      |     |
 
 ***
+
+**2.ko.sh**
+
+    kill processes by %name%
+
+![ko redis](http://raw.github.com/quorzz/HanndyTools/master/images/ko01.png)
+
+***
