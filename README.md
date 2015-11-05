@@ -37,3 +37,18 @@ So I can't ensure that they can work well under linux or other environment
 ![ko redis](https://github.com/quorzz/HandyTools/blob/master/images/ko01.png)
 
 ***
+
+**3. spto**
+    
+    script : src/spto.sh
+
+    split file to n pieces, for example : 
+
+    split ~/a.log into 3 pieces, store in ~/pieces/ with a prefix 'pre' each : 
+
+    spto -l 3 ~/a.log ~/pieces/pre (by lines)
+
+    spto -s 3 ~/a.log ~/pieces/pre (by sizes)
+
+***
+
