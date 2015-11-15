@@ -52,3 +52,17 @@ So I can't ensure that they can work well under linux or other environment
 
 ***
 
+**3. tree**
+    
+    script : src/tree.php   or   src/tree.go
+
+    output the dir in tree structure, for example : 
+
+    tree : current directory for complete display
+
+    tree ~/workspace : complete display in ~/workspace
+
+    tree ../workspace 2 : only display 2 level in ~/workspace
+
+    besides, green for directory and yellow for file
+***
