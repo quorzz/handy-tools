@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-# git project [git裸库位置,可选] [项目目录,可选]
+# `git project` 跟着提示走 或者 `git project [git裸库目录] [项目目录]`
 # 
-# 1. 创建一个 git 裸库 [如果已存在, 则跳过]
+# 1. 创建一个 git 裸库 [可以是已存在的, 跳过]
 # 2. 在裸库上建立钩子 [每次接受到commit, 自动同步到指定项目目录]
 
 repositoryDir=$1 # first param : path to the git bare repository
@@ -38,8 +38,7 @@ GIT_WORK_TREE=${projectDir}     git checkout -f
 echo 'done ......'
 "
 
-function initBareRepository()
-{
+initBareRepository() {
     if [ -f ${repositoryDir}/HEAD ];then
         echo "$repositoryDir is already a bare repository. skiping......"
     else
@@ -47,12 +46,11 @@ function initBareRepository()
     fi
 }
 
-function initPostUpdate()
-{
+initPostUpdate() {
     hook=${repositoryDir}/hooks/post-update
     overwrite="y"
     test -f $hook && read -p "!!! ${hook} already exist, overwrite?[y/n]" overwrite
-    if [[ "y" = "$overwrite" ]];then
+    if [ "y" = "$overwrite" ];then
         echo "$hookContent" > $hook
         chmod a+x $hook
         echo "create a hook to autosyn codes to ${projectDir} every time you commit"
