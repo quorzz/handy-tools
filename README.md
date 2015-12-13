@@ -1,10 +1,10 @@
 # HanndyTools
 some of the tools that I daily use, mainly shell, python or php scripts
 
-## NOTICE : 
+<!-- ## NOTICE : 
 I have just used these scripts in the OSX
 
-So I can't ensure that they can work well under linux or other environment
+So I can't ensure that they can work well under linux or other environment -->
 
 *** 
 
@@ -65,4 +65,19 @@ So I can't ensure that they can work well under linux or other environment
     tree ../workspace 2 : only display 2 level in ~/workspace
 
     besides, green for directory and yellow for file
+***
+
+**5. git project**
+
+    script : src/git-project.sh
+
+    git project [bare repository directory] [project directory]
+
+    run `git project`, then follow the tips 
+    OR 
+    run with complete parameter like `git project /git/moon.git ~/project`
+
+    1. create a bare repository at the directory you designated (if already exist a bare repository in this directory, skiping)
+    2. create a hook in the repository that every time you commit it can autosyn the code to the project directory
+
 ***
