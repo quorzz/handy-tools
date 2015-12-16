@@ -2,7 +2,7 @@
 
 # `git project` 跟着提示走 或者 `git project [git裸库目录] [项目目录]`
 # 
-# 1. 创建一个 git 裸库 [可以是已存在的, 跳过]
+# 1. 创建一个裸库 [如果是已存在的, 跳过]
 # 2. 在裸库上建立钩子 [每次接受到commit, 自动同步到指定项目目录]
 
 repositoryDir=$1 # first param : path to the git bare repository
@@ -30,7 +30,7 @@ echo 'transfer the code you commit now ......'
 
 while read oldrev newrev refname
 do
-    git show --no-color --root -s --pretty=medium $newrev
+    git show --color --root -s --pretty=medium $newrev
 done
 
 GIT_WORK_TREE=${projectDir}     git checkout -f
@@ -46,8 +46,8 @@ initBareRepository() {
     fi
 }
 
-initPostUpdate() {
-    hook=${repositoryDir}/hooks/post-update
+initHooks() {
+    hook=${repositoryDir}/hooks/post-receive
     overwrite="y"
     test -f $hook && read -p "!!! ${hook} already exist, overwrite?[y/n]" overwrite
     if [ "y" = "$overwrite" ];then
@@ -61,6 +61,6 @@ initPostUpdate() {
 
 initBareRepository;
 echo
-initPostUpdate;
+initHooks;
 echo
 echo "done!"
