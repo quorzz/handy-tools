@@ -82,12 +82,24 @@ So I can't ensure that they can work well under linux or other environment -->
 
 ***
 
-**6. git fc**
+**6. sign**
+
+    script : src/sign.sh
+
+    sign  nice to meet you              ## avpr gb zrrg lbh
+    sign  nice to meet you | sign       ## nice to meet you
+
+    so interesting,  ha?
+***
+
+**7. git fc**
 
     script : src/git-fc.sh
 
     git fc [diffBranch]
 
     list the changed folders
-
 ***
+
+
+

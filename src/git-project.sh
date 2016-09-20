@@ -10,13 +10,17 @@ projectDir=$2 # second param : the path where to autosyn every time you commit
 
 test -z $repositoryDir && read -p "path to the bare repository : " repositoryDir
 
-test -d $repositoryDir || (echo "${repositoryDir} is not a dir!" 1>&2 && exit 1)
+test -d $repositoryDir || mkdir -p $repositoryDir
+
+# (echo "${repositoryDir} is not a dir!" 1>&2 && exit 1)
 
 currentDir=$(pwd)
 # test -z $projectDir && projectDir=$currentDir 
 test -z $projectDir && read -p "path to your project : " projectDir
 
-test -d $projectDir || (echo "${projectDir} is not a dir!" 1>&2 && exit 1)
+test -d $projectDir || mkdir -p $projectDir
+
+# (echo "${projectDir} is not a dir!" 1>&2 && exit 1)
 
 repositoryDir=$(cd $repositoryDir; pwd)
 projectDir=$(cd $projectDir; pwd)
