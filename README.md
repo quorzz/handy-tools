@@ -81,3 +81,13 @@ So I can't ensure that they can work well under linux or other environment -->
     2. create a hook in the repository that every time you commit it can autosyn the code to the project directory
 
 ***
+
+**6. git fc**
+
+    script : src/git-fc.sh
+
+    git fc [diffBranch]
+
+    list the changed folders
+
+***
